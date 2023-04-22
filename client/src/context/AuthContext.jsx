@@ -1,8 +1,5 @@
 import { createContext, useContext, useEffect, useReducer, useState } from 'react'
 import AuthReducer from './AuthReducer'
-import {
-  TypeAccountRequest
-} from '../api/login.api'
 
 const INITIAL_STATE = {
   // eslint-disable-next-line no-undef
@@ -21,9 +18,9 @@ export const useAuthContext = () => {
 
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE)
-  const [TypeAccount, setTypeAccount] = useState(1)
+  // const [TypeAccount, setTypeAccount] = useState(1)
 
-  const GetTypeAccount = async () => {
+  // const GetTypeAccount = async () => {
     // try {
     //   const token = state.currentUser.Token
     //   const response = await TypeAccountRequest(token)
@@ -31,16 +28,15 @@ export const AuthContextProvider = ({ children }) => {
     // } catch (error) {
     //   setTypeAccount(1)
     // }
-  }
+  // }
 
   useEffect(() => {
     // eslint-disable-next-line no-undef
     localStorage.setItem('pagautmas-939Dm$W1&ahs', JSON.stringify(state.currentUser))
-    GetTypeAccount()
   }, [state.currentUser])
 
   return (
-    <AuthContext.Provider value={{ currentUser: state.currentUser, dispatch, setTypeAccount, TypeAccount, GetTypeAccount }}>
+    <AuthContext.Provider value={{ currentUser: state.currentUser, dispatch }}>
       {children}
     </AuthContext.Provider>
   )
