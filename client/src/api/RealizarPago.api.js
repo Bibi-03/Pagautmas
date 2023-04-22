@@ -1,5 +1,8 @@
 import axios from 'axios'
 
+// export const RealizarPagoRequest = async (Datos) =>
+//   await axios.post(`http://localhost:4000/api/RealizarPago`, Datos)
+
 export const RealizarPagoRequest = async (Datos) =>
-  await axios.post(`http://localhost:4000/api/RealizarPago`, Datos)
+  await axios.post(`/api/RealizarPago`, Datos)
 
