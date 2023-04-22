@@ -6,6 +6,8 @@ import { PORT } from './config.js'
 
 // import indexRoutes from "./routes/index.routes.js";
 import LoginRoutes from './routes/Login.routes.js'
+import ValidarCuentaRoutes from './routes/ValidarPago.routes.js'
+import RealizarPagoRoutes from './routes/RealizarPago.routes.js'
 
 const app = express()
 // const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -15,7 +17,8 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/api', LoginRoutes)
-
+app.use('/api', ValidarCuentaRoutes)
+app.use('/api', RealizarPagoRoutes)
 // app.use(express.static(join(__dirname, '../client/dist')))
 
 // app.get('*', (req, res) => {

@@ -15,6 +15,7 @@ import PagoTelefonico from './pages/PagoTelefonico'
 import PagoElectricidad from './pages/PagoElectricidad'
 import PagoInternet from './pages/PagoInternet'
 import { useAuthContext } from './context/AuthContext'
+import { LoginContextProvider } from './context/Login'
 
 
 const WithoutNavBar = [
@@ -31,6 +32,7 @@ function App() {
 
   const location = useLocation()
   return (
+    <LoginContextProvider>
     <div className='flex flex-col min-h-full bg-stone-50'>
       <div className='flex-1'>
         {!WithoutNavBar.includes(location.pathname) && <NavBar/>}
@@ -59,6 +61,7 @@ function App() {
         </div>
       </div>
     </div>
+    </LoginContextProvider>
   )
 }
 

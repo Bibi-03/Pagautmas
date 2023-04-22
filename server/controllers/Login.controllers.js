@@ -6,18 +6,13 @@ import bcrypt from 'bcrypt'
 
 export const getLogin = async (req, res) => {
   try {
+    const {email, password} = req.params
     const [result] = await pool.query(
-      'SELECT `email`, password,  `identification`, `type`, `Token` FROM `login` WHERE `email` = ? AND stateId = 1',
-      [req.params.email]
+      'select * from usuario where email = ? and contrasena = ?;',
+      [email, password]
     )
-
-    const match = await bcrypt.compare(req.params.password, result[0].password)
-
-    if (match) {
-      return res.json(result[0])
-    } else {
-      return res.status(404).json({ message: 'user not found' })
-    }
+ 
+    return res.json(result[0])
   } catch (error) {
     return res.status(404).json({ message: 'user not found' })
   }

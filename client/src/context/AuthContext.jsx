@@ -24,18 +24,18 @@ export const AuthContextProvider = ({ children }) => {
   const [TypeAccount, setTypeAccount] = useState(1)
 
   const GetTypeAccount = async () => {
-    try {
-      const token = state.currentUser.Token
-      const response = await TypeAccountRequest(token)
-      setTypeAccount(response.data)
-    } catch (error) {
-      setTypeAccount(1)
-    }
+    // try {
+    //   const token = state.currentUser.Token
+    //   const response = await TypeAccountRequest(token)
+    //   setTypeAccount(response.data)
+    // } catch (error) {
+    //   setTypeAccount(1)
+    // }
   }
 
   useEffect(() => {
     // eslint-disable-next-line no-undef
-    localStorage.setItem('reshape-939Dm$W1&ahs', JSON.stringify(state.currentUser))
+    localStorage.setItem('pagautmas-939Dm$W1&ahs', JSON.stringify(state.currentUser))
     GetTypeAccount()
   }, [state.currentUser])
 
