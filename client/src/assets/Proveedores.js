@@ -1,0 +1,1 @@
+export const proveedores = ["CNTEL", "JASEC", "SPA", "Kolbi", "Liberty", "Claro"];

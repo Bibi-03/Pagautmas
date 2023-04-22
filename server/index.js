@@ -5,6 +5,7 @@ import cors from 'cors'
 import { PORT } from './config.js'
 
 // import indexRoutes from "./routes/index.routes.js";
+import LoginRoutes from './routes/Login.routes.js'
 
 const app = express()
 // const __dirname = dirname(fileURLToPath(import.meta.url))
@@ -13,7 +14,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-// app.use('/api',indexRoutes);
+app.use('/api', LoginRoutes)
 
 // app.use(express.static(join(__dirname, '../client/dist')))
 
